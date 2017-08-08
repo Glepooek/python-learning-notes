@@ -8,7 +8,13 @@
 
 Python 3.0版本，常被称为Python 3000，或简称Py3k。相对于Python的早期版本，这是一个较大的升级。为了不带入过多的累赘，Python 3.0在设计的时候没有考虑向下兼容。
 
-### 快速阅读传送门
-- Github快速阅读任一章节：[进入目录](https://github.com/Glepooek/python-gitbook/blob/master/SUMMARY.md)
-- Gitbook完整顺序地阅读：[进入Gitbook](https://glepooek.gitbooks.io/python/content/)
+### 快速阅读
+- GitHub快速阅读任一章节：[GitHub目录](https://github.com/Glepooek/python-gitbook/blob/master/SUMMARY.md)
+- GitBook完整顺序地阅读：[GitBook目录](https://glepooek.gitbooks.io/python/content/)
 
+### Python基础参考
+- Python3教程：[菜鸟教程](http://www.runoob.com/python3/python3-tutorial.html)
+
+### Python进阶参考
+- Intermediate Python中文译本：[Python进阶](https://www.gitbook.com/book/eastlakeside/interpy-zh/details)
+- Intermediate Python英文原著：[Intermediate Python](https://github.com/yasoob/intermediatePython)
