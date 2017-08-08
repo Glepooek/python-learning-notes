@@ -1,4 +1,4 @@
-# Python基础数据类型
+# 元组(Tuple)
 
 GitBook allows you to organize your book into chapters, each chapter is stored in a separate file like this one.
 
