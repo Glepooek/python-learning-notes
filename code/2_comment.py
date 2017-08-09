@@ -12,5 +12,4 @@ class CommentDemo:
         """
         定义方法
         """
-
-        return x + y
+        pass
