@@ -18,3 +18,10 @@ Python 3.0版本，常被称为Python 3000，或简称Py3k。相对于Python的�
 ### Python进阶参考
 - Intermediate Python中文译本：[Python进阶](https://www.gitbook.com/book/eastlakeside/interpy-zh/details)
 - Intermediate Python英文原著：[Intermediate Python](https://github.com/yasoob/intermediatePython)
+
+### Python开源库
+- [PyMySQL](https://github.com/PyMySQL/PyMySQL)
+- [Django](https://github.com/django/django)
+
+### Python开发工具
+- [PyCharm](https://www.jetbrains.com/pycharm/)
