@@ -1,4 +1,52 @@
 # 注释(comment)
 
-GitBook allows you to organize your book into chapters, each chapter is stored in a separate file like this one.
+对模块, 类, 方法和变量给予适当注释并使用正确的注释风格，可提高代码的易读性和可维护性。
+### 在Python中注释有单行注释和多行注释：
+- 单行注释以```#```开头；
+- 多行注释用三个单引号```'''``` 或者三个双引号```"""```将注释括起来。
 
+1、#号
+```python
+# 这是单行注释
+print("Hello, World!")
+```
+
+2、单引号（'''）
+```python
+'''
+这是多行注释，用三个单引号
+这是多行注释，用三个单引号
+这是多行注释，用三个单引号
+'''
+print("Hello, World!")
+```
+
+3、双引号（"""）
+```python
+"""
+这是多行注释，用三个双引号
+这是多行注释，用三个双引号
+这是多行注释，用三个双引号
+"""
+print("Hello, World!")
+```
+
+```在类、方法、变量定义时添加注释，注释要放在紧靠类、方法、变量的下面，这样在引用类、方法、变量的地方，当鼠标放在其上时就会显示注释。```
+```python
+class CommentDemo:
+    """
+    注释Demo，演示在类、方法、变量定义时，注释书写的位置
+    """
+
+    list1 = ['test', 12, 45]
+    """
+    定义变量
+    """
+
+    def test(self, x, y):
+        """
+        定义方法
+        """
+
+        return x + y
+```
