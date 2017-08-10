@@ -13,4 +13,7 @@
     * [内置函数](built-in_functions/README.md)
         * [property()](built-in_functions/property.md)
 * Python进阶
+* Python风格指南(python_style_guide/README.md)
+    * [Python语言规范](python_style_guide/python_language_rules.md)
+    * [Python风格规范](python_style_guide/python_style_rules.md)
 

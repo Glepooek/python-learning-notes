@@ -1,18 +1,21 @@
-### property
+### ```property()```
 
-property() 函数的作用是在新式类中返回属性值。
+property()函数的作用是在新式类中返回属性值。
 
 ##### 语法
 property([fget[, fset[, fdel[, doc]]]])
 
 ##### 参数
-fget -- 获取属性值的函数
-fset -- 设置属性值的函数
-fdel -- 删除属性值函数
-doc -- 属性描述信息
+fget--获取属性值的函数
+fset--设置属性值的函数
+fdel--删除属性值函数
+doc--属性描述信息
 
 ##### 返回值
-返回新式类属性。
+返回新式类属性
+
+##### Tip
+通过仅适用@property和仅为property()函数传入fget方法可定义只读属性
 
 
 ```python
