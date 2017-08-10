@@ -11,5 +11,6 @@
         * [字典](basic_data_types/dictionary.md)
     * [注释](comment/comment.md)
     * [内置函数](built-in_functions/README.md)
+        * [property()](built-in_functions/property.md)
 * Python进阶
 
