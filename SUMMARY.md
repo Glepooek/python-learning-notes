@@ -10,5 +10,6 @@
         * [元组](basic_data_types/tuple.md)
         * [字典](basic_data_types/dictionary.md)
     * [注释](comment/comment.md)
+    * [内置函数](built-in_functions/README.md)
 * Python进阶
 
