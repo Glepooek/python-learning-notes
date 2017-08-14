@@ -31,7 +31,6 @@ class BuiltinFunctionDemo:
     def name(self):
         del self._name
 
-
 test = BuiltinFunctionDemo()
 test.name = 'anyu'
 print(test.name)
