@@ -92,6 +92,7 @@ def func(*args, **kwargs):pass
 将上面的代码略微修改一下：
 ```python
 import time
+import sys
 
 def log_cost_time(stream):
     def inner_dec(func):
@@ -106,7 +107,6 @@ def log_cost_time(stream):
         return wrapper
     return inner_dec
 
-import sys
 @log_cost_time(sys.stdout)
 def complex_func(num):
     ret = 0
@@ -134,7 +134,7 @@ if __name__ == '__main__':
 ```
 
 ###### 3、类装饰器
-为了将装饰器定义成一个实例，你需要确保它实现了```__call__()```和```__get__()```方法。
+为了将装饰器定义成一个实例，需要确保它实现了```__call__()```和```__get__()```方法。
 例如，下面的代码定义了一个类，它在其他函数上放置一个简单的记录层：
 ```python
 import types

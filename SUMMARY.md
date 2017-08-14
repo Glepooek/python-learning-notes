@@ -15,7 +15,7 @@
     * [面向对象](object_oriented/README.md)
         * [面向对象基础](object_oriented/basic_object_oriented.md)
         * [面向对象进阶](object_oriented/advanced_object_oriented.md)
-* Python进阶
+* Python进阶(advanced_python/README.md)
     * [装饰器](advanced_python/decorator.md)
 * [Python风格指南](python_style_guide/README.md)
     * [Python语言规范](python_style_guide/python_language_rules.md)
