@@ -1,40 +1,43 @@
 ### 装饰器(```Decorator```)
 
-一般来说，装饰器是一个函数，接受一个函数（或者类）作为参数，返回值也是也是一个函数（或者类）。
+装饰器本质上是一个Python函数或类，它可以让其他函数或类在不需要做任何代码修改的前提下增加额外功能，
+装饰器的返回值也是一个函数或类对象。
 
-###### 1、装饰器对函数的修饰，在不改变被装饰对象的同时增加额外功能
+###### 1、函数装饰器对函数的修饰
 首先来看一个简单的例子：
 ```python
+import time
+
 def log_cost_time(func):
-    def wrapped(*args, **kwargs):
-        import time
-        begin = time.time()
+    def wrapper(*args, **kwargs):
+        begin = time.clock()
         try:
             return func(*args, **kwargs)
+        except Exception as e:
+            print(str(e))
         finally:
-            print 'func %s cost %s' % (func.__name__, time.time() - begin)
-    return wrapped
+            print('func %s cost %s' % (func.__name__, time.clock() - begin))
+    return wrapper
 
 # 函数log_cost_time就是一个装饰器，其作用是打印被装饰函数运行时间。
 # 在不改变被装饰对象的同时增加了记录函数执行时间的额外功能。
+# complex_func = log_cost_time(complex_func)
 @log_cost_time
-def complex_func(num):
+def wrapped_func(num):
     ret = 0
-    for i in xrange(num):
+    for i in range(num):
         ret += i * i
     return ret
-#complex_func = log_cost_time(complex_func)
 
 if __name__ == '__main__':
-    print complex_func(100000)
+    print(wrapped_func(100000))
 ```
 
 装饰器的语法如下：
 ```python
 @dec
 def func():pass
-
-# 等价于 func = dec(func)。
+# 等价于 func = dec(func)
 ```
 
 装饰器是可以嵌套的，如
@@ -42,33 +45,39 @@ def func():pass
 @dec0
 @dec1
 def func():pass
-
-# 等价于 func = dec0(dec1(fun))。
+# 等价于 func = dec0(dec1(fun))
 ```
 
-装饰器也有“副作用”，对于被log_cost_time装饰的complex_calc, 查看一下complex_func.__name__，
-输出是：“wrapped”。这个是log_cost_time里面inner function（wrapped）的名字，调用者当然希望输出“complex_func”，
+对于被log_cost_time装饰的wrapped_func, 查看一下wrapped_func.__name__，
+输出是：“wrapper”。这个是log_cost_time里面inner function（wrapper）的名字，调用者当然希望输出“wrapped_func”，
 为了解决这个问题，python提供了两个函数。
 
 1、functools.update_wrapper(wrapper, wrapped[, assigned][, updated])
-第三个参数，将wrapped的值直接复制给wrapper，默认为（__doc__, __name__, __module__)
-第四个参数，updated，默认为(__dict__)
+- 第一个参数，包装函数
+- 第二个参数，被包装的函数，即传入的函数
+- 第三个参数，默认为（```__doc__, __name__, __module__```)，将被包装函数值直接复制给wrapper
+- 第四个参数，默认为(```__dict__```)
 
 2、functools.wraps： update_wrapper的封装
 
-简单改改代码：
+简单修改函数装饰器代码：
 ```python
+from functools import update_wrapper
 from functools import wraps
+
 def log_cost_time(func):
     @wraps(func)
-    def wrapped(*args, **kwargs):
+    def wrapper(*args, **kwargs):
         import time
         begin = time.time()
         try:
             return func(*args, **kwargs)
+        except Exception as e:
+                    print(str(e))
         finally:
             print 'func %s cost %s' % (func.__name__, time.time() - begin)
-    return wrapped
+    # return update_wrapper(wrapper, func)
+    return wrapper
 
 # 查看complex_func.__name__ 输出就是 “complex_func”
 ```
@@ -77,29 +86,31 @@ def log_cost_time(func):
 ```python
 @dec(dec_args)
 def func(*args, **kwargs):pass
-
 # 等价于 func = dec(dec_args)(*args, **kwargs)
 ```
 
 将上面的代码略微修改一下：
 ```python
+import time
+
 def log_cost_time(stream):
     def inner_dec(func):
-        def wrapped(*args, **kwargs):
-            import time
-            begin = time.time()
+        def wrapper(*args, **kwargs):
+            begin = time.clock()
             try:
                 return func(*args, **kwargs)
+            except Exception as e:
+                print(str(e))
             finally:
-                stream.write('func %s cost %s \n' % (func.__name__, time.time() - begin))
-        return wrapped
+                stream.write('func %s cost %s \n' % (func.__name__, time.clock() - begin))
+        return wrapper
     return inner_dec
 
 import sys
 @log_cost_time(sys.stdout)
 def complex_func(num):
     ret = 0
-    for i in xrange(num):
+    for i in range(num):
         ret += i * i
     return ret
 
@@ -107,31 +118,61 @@ if __name__ == '__main__':
     print complex_func(100000)
 ```
 
-###### 2、装饰器对类的修饰（```decorator修改了被装饰的对象```）
-举个例子，修改类的__str__方法，代码很简单。
+###### 2、函数装饰器对类的修饰
 ```python
-def Haha(clz):
+def modify(clz):
     clz.__str__ = lambda s: "Haha"
     return clz
 
-<a href="http://www.jobbole.com/members/cxh1527">@Haha</a>
+@modify
 class Widget(object):
     ''' class Widget '''
 
 if __name__ == '__main__':
     w = Widget()
-    print w
+    print(w)
+```
+
+###### 3、类装饰器
+为了将装饰器定义成一个实例，你需要确保它实现了```__call__()```和```__get__()```方法。
+例如，下面的代码定义了一个类，它在其他函数上放置一个简单的记录层：
+```python
+import types
+from functools import wraps
+
+class Profiled:
+    def __init__(self, func):
+        wraps(func)(self)
+        self.ncalls = 0
+
+    def __call__(self, *args, **kwargs):
+        self.ncalls += 1
+        return self.__wrapped__(*args, **kwargs)
+
+    def __get__(self, instance, cls):
+        if instance is None:
+            return self
+        else:
+            return types.MethodType(self, instance)
+```
+
+可以将它当做一个普通的装饰器来使用，在类里面或外面都可以：
+```python
+@Profiled
+def add(x, y):
+    return x + y
+
+class Spam:
+    @Profiled
+    def bar(self, x):
+        print(self, x)
 ```
 
 decorator在python中用途非常广泛，下面列举几个方面：
-- 修改被装饰对象的属性或者行为
-- 处理被函数对象执行的上下文，比如设置环境变量，加log之类
-- 处理重复的逻辑，比如有N个函数都可能抛出异常，可以写一个catchall的decorator，作用于所用可能抛出异常的函数
-- 框架代码，如flask， bottle等等，让使用者很方便就能使用框架，本质上也避免了重复代码。
-
-
-另外staticmethod和classmethod是两个经常在代码中用到的装饰器，
-如果对pyc反编译，得到的代码一般也都是 func = staticmthod(func)这种模式。
-当然，@符号的形式更受欢迎些，至少可以少拼写一次函数名。
+- 插入日志、
+- 性能测试、
+- 事务处理、
+- 缓存、
+- 权限校验
 
 
