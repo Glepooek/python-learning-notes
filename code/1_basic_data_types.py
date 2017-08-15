@@ -9,5 +9,4 @@ if 1997 in tup:
 for x in tup:
     print(x)
 
-
-
+list1 = ['Google', 'Runoob', 1997, 2000]

@@ -99,10 +99,10 @@ Python元组包含了以下内置函数
 
 |序号| 方法及描述|
 | :--- |:--- |
-| 1 | len(tuple)，计算元组元素个数|
-| 2 | max(tuple)，返回元组中元素最大值|
-| 3 | min(tuple)，返回元组中元素最小值|
-| 4 | tuple(seq)，将序列转换为元组|
+| len(tuple)|计算元组元素个数|
+| max(tuple)|返回元组中元素最大值|
+| min(tuple)|返回元组中元素最小值|
+| tuple(seq)|将序列转换为元组|
 
 ```python
 tuple1 = ('Google', 'Runoob', 'Taobao')
