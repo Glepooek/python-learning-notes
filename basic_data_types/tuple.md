@@ -97,8 +97,7 @@ NameError: name 'tup' is not defined
 ###### 6、元组索引，截取
 
 因为元组也是一个序列，所以我们可以访问元组中的指定位置的元素，也可以截取索引中的一段元素，如下所示：  
-元组：  
-L = ('Google', 'Taobao', 'Runoob')
+元组：L = ('Google', 'Taobao', 'Runoob')
 
 | Python表达式 | 结果 | 描述 |
 | :--- |:--- | :---|
@@ -121,6 +120,7 @@ L = ('Google', 'Taobao', 'Runoob')
 
 Python元组包含了以下内置函数  
 |序号| 方法及描述|
+| :--- |:--- |
 | 1 |:len(tuple)，计算元组元素个数|
 | 2 | max(tuple)，返回元组中元素最大值|
 | 3 | min(tuple)，返回元组中元素最小值|
