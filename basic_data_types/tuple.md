@@ -118,7 +118,8 @@ NameError: name 'tup' is not defined
 
 ###### 7、元组内置函数
 
-Python元组包含了以下内置函数  
+Python元组包含了以下内置函数
+
 |序号| 方法及描述|
 | :--- |:--- |
 | 1 |:len(tuple)，计算元组元素个数|
