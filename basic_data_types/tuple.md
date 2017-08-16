@@ -97,7 +97,7 @@ NameError: name 'tup' is not defined
 
 Python元组包含了以下内置函数
 
-|序号| 方法及描述|
+|方法| 描述|
 | :--- |:--- |
 | len(tuple)|计算元组元素个数|
 | max(tuple)|返回元组中元素最大值|
