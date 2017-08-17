@@ -6,12 +6,17 @@ re.compile函数根据一个模式字符串和可选的标志参数生成一个�
 re模块也提供了与这些方法功能完全一致的函数，这些函数使用一个模式字符串做为它们的第一个参数。
 
 ###### 0、正则表达式基础
-正则表达式匹配流程：
+正则表达式匹配流程图：
+
 ![正则表达式匹配流程](匹配流程.png)
 
-[Python支持的正则表达式元字符和语法官方](https://translate.google.com.hk/translate?hl=zh-CN&sl=en&u=https://docs.python.org/2/library/re.html&prev=search)
-[Python支持的正则表达式元字符和语法博客园](https://www.cnblogs.com/huxi/archive/2010/07/04/1771073.html）
+正则表达式元字符和语法：
+
 ![正则表达式元字符和语法](regx_lan.png)
+
+Python支持的正则表达式元字符和语法：[Python官方](https://translate.google.com.hk/translate?hl=zh-CN&sl=en&u=https://docs.python.org/2/library/re.html&prev=search)
+或[博客园](https://www.cnblogs.com/huxi/archive/2010/07/04/1771073.html）
+
 
 ###### 1、re.compile函数
 Python使用re.compile函数先将正则表达式的字符串形式编译为Pattern对象（即正则表达式对象），
@@ -215,7 +220,6 @@ import re
 
 p = re.compile(r'(\w+) (\w+)')
 s = 'i say, hello world!'
-
 print(p.sub(r'\2 \1', s))
 
 def func(m):
@@ -236,7 +240,6 @@ import re
 
 p = re.compile(r'(\w+) (\w+)')
 s = 'i say, hello world!'
-
 print(p.subn(r'\2 \1', s))
 
 def func(m):
