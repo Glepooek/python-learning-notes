@@ -1,6 +1,13 @@
 import re
 
-pattern = '.?'
-list1 = ['a', 'ab', 'aab', 'aabb', 'abb', 'abbbb']
+# 将匹配的数字乘于 2
+def double(matched):
+    value = int(matched.group('value'))
+    return str(value * 2)
 
-print(re.search(pattern, 'abbbbab'))
+s = 'A24G4HFD567'
+print(re.sub('(?P<value>\d+)', double, s))
+
+
+pattern = '(?P<value>\d+)'
+print(re.sub(pattern, double, s))
