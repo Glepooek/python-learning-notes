@@ -1,13 +1,15 @@
 import re
 
-# 将匹配的数字乘于 2
 def double(matched):
     value = int(matched.group('value'))
-    return str(value * 2)
+    key = matched.group('key')
+    return ''.join([str(value * 4), str(key * 2)])
 
-s = 'A24G4HFD567'
-print(re.sub('(?P<value>\d+)', double, s))
+s = 'A24G4HFD567 ds89a2'
+pattern = '(?P<value>\d+) (?P<key>ds\d*)'
+print(re.search(pattern, s).group(1))
+print(re.search(pattern, s).group(2))
 
-
-pattern = '(?P<value>\d+)'
 print(re.sub(pattern, double, s))
+
+
