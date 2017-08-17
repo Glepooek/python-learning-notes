@@ -15,7 +15,7 @@ re模块也提供了与这些方法功能完全一致的函数，这些函数使
 ![正则表达式元字符和语法](regx_lan.png)
 
 Python支持的正则表达式元字符和语法：[Python官方](https://translate.google.com.hk/translate?hl=zh-CN&sl=en&u=https://docs.python.org/2/library/re.html&prev=search)
-或[博客园](https://www.cnblogs.com/huxi/archive/2010/07/04/1771073.html）
+或[博客园](https://www.cnblogs.com/huxi/archive/2010/07/04/1771073.html)
 
 
 ###### 1、re.compile函数
