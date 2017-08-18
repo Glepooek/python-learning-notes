@@ -27,7 +27,6 @@ import re
 
 # 将正则表达式编译成Pattern对象
 pattern = re.compile(r'hello')
-
 # 使用Pattern匹配文本，获得匹配结果，无法匹配时将返回None
 match = pattern.match('hello world!')
 
@@ -86,6 +85,7 @@ Match对象是一次匹配的结果，包含很多关于此次匹配的信息，
 
 ```python
 import re
+
 print("m.string:", m.string)
 print("m.re:", m.re)
 print("m.pos:", m.pos)
