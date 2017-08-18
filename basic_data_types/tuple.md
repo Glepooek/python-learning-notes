@@ -53,7 +53,7 @@ tup2 = ('abc', 'xyz')
 # tup1[0] = 100
 
 # 创建一个新的元组
-tup3 = tup1 + tup2;
+tup3 = tup1 + tup2
 print(tup3)
 以上实例输出结果：
 (12, 34.56, 'abc', 'xyz')
@@ -70,11 +70,9 @@ tup = ('Google', 'Runoob', 1997, 2000)
 # del tup[0]
 
 del tup
-print("删除后的元组 tup : ")
 print(tup)
 
 # 以上实例元组被删除后，输出变量会有异常信息，输出如下所示：
-删除后的元组 tup :
 Traceback (most recent call last):
   File "test.py", line 8, in <module>
     print (tup)
