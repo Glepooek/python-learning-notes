@@ -1,7 +1,3 @@
-### 面向对象基础
-
-创建Python对象的八种方式：
-```python
 import copy
 import sys
 
@@ -40,4 +36,3 @@ if __name__ == '__main__':
     point7 = eval('{}({}, {})'.format('Point', 13, 14))
 
     print(point7.x)
-```
