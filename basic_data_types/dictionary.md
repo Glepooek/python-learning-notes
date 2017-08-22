@@ -83,9 +83,13 @@ dict3 = dict1.copy()   # 浅拷贝：深拷贝父对象（一级目录），子�
 dict1['user']='root'
 dict1['num'].remove(1)
 
-# 输出结果
 print(dict1)
 print(dict2)
 print(dict3)
+
+# 输出结果
+{'user': 'root', 'num': [2, 3]}
+{'user': 'root', 'num': [2, 3]}
+{'user': 'runoob', 'num': [2, 3]}
 ```
 
