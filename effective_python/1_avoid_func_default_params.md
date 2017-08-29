@@ -15,13 +15,13 @@ def search_for_links(page, add_to=[]):
 试试下面的代码：
 
 ```python
-def fn(var1, var2=[]):
+def func(var1, var2=[]):
     var2.append(var1)
     print var2
 
-fn(3)
-fn(4)
-fn(5)
+func(3)
+func(4)
+func(5)
 
 # 输出结果：
 [3]
@@ -34,7 +34,7 @@ fn(5)
 当函数运行时，它并不是每次都被实例化。这意味着，这个函数会一直使用完全一样的列表对象，除非我们提供一个新的对象：
 
 ```python
-fn(3, [4])
+func(3, [4])
 
 # 输出结果
 [4, 3]
