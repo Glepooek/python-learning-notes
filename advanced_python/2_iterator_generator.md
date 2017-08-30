@@ -5,7 +5,7 @@
 
 在学习Python的数据结构时，相关概念容易使人产生混淆：
 - 容器（a container）
-- 迭代对象（an iterable）
+- 可迭代对象（an iterable）
 - 迭代器（an iterator）
 - 生成器（a generator）
 - 生成器表达式（a generator expression）
@@ -54,7 +54,7 @@ if '12' in dic1:
 尽管绝大多数容器都提供了某种方式来获取其中的每一个元素，但这并不是容器本身提供的能力，
 而是可迭代对象赋予了容器这种能力，当然并不是所有的容器都是可迭代的，比如：[Bloom filter](https://zh.wikipedia.org/wiki/%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8)。
 
-###### 2、迭代对象
+###### 2、可迭代对象
 ```凡是实现__iter__方法，返回一个迭代器的对象都可称之为可迭代对象。```
 很多容器都是可迭代对象，还有更多的对象同样也是可迭代对象，比如处于打开状态的files，sockets等等。
 迭代器内部持有一个状态，该状态用于记录当前迭代所在的位置，以方便下次迭代的时候获取正确的元素。
@@ -84,6 +84,43 @@ for elem in list1:
 实际执行情况，如下图所示：
 
 ![实际执行情况图](iterable-vs-iterator.png)
+
+```python
+from collections import Iterator
+from collections import Iterable
+
+class CustomIterator(Iterator):
+    """
+    自定义迭代器
+    """
+
+    def __init__(self, seq):
+        self.index = 0
+        self.seq = seq
+
+    def __next__(self):
+        if self.index > len(self.seq) - 1:
+            raise StopIteration
+        else:
+            self.index += 1
+            return self.seq[self.index - 1]
+
+class CustomIterable(Iterable):
+    """
+    自定义可迭代对象
+    """
+
+    def __init__(self, seq):
+        self.seq = seq
+
+    def __iter__(self):
+        return CustomIterator(self.seq)
+
+# 自定义可迭代对象
+print('自定义可迭代对象结果：')
+for item in CustomIterable([1, 2, 3, 4, 4, 6]):
+    print(item)
+```
 
 ###### 3、迭代器
 任何实现了__iter__和__next__()（python2中实现next()）方法的对象都是迭代器，
@@ -116,7 +153,11 @@ for x in limited:
 自定义一个斐波那契数列迭代器，体会下迭代器的内部执行过程：
 
 ```python
-class Fib(object):
+class Fib(Iterator):
+    """
+    自定义斐波那契数列迭代器
+    """
+
     def __init__(self):
         self.prev = 0
         self.curr = 1
