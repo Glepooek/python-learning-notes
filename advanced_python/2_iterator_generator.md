@@ -1,7 +1,6 @@
 ### 迭代器和生成器(```Iterator and Generator```)
 
->
-本笔记是在阅读[生成器](https://eastlakeside.gitbooks.io/interpy-zh/content/Generators/)后，
+>本笔记是在阅读[生成器](https://eastlakeside.gitbooks.io/interpy-zh/content/Generators/)后，
 又参考[完全理解Python迭代对象、迭代器、生成器](https://foofish.net/iterators-vs-generators.html)进行的整理。
 
 在学习Python的数据结构时，相关概念容易使人产生混淆：
