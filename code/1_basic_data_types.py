@@ -49,3 +49,9 @@ del list5[1]
 
 print(list4)
 print(list5)
+
+
+cities = ['BeiJing', 'TianJin', 'JiNan', 'ShenZhen', 'WuHan']
+
+for index, city in enumerate(cities, 1):
+    print(index, ':', city)
