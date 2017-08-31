@@ -54,7 +54,7 @@ class Fib(Iterator):
         return value
 
 
-def Fibonacci(num):
+def fibonacci(num):
     coun, prev, curr = 0, 0, 1
     while coun < num:
         yield curr
@@ -95,7 +95,7 @@ if __name__ == '__main__':
         print(x)
 
     # 生成器
-    limited2 = islice(Fibonacci(100), 0, 10)
+    limited2 = islice(fibonacci(100), 0, 10)
     print('生成器结果：')
     for x in limited2:
         print(x)
