@@ -1,57 +1,57 @@
+from copy import deepcopy
+from collections import defaultdict
+
 list1 = [12, 'niubi', 'hah', [1, 2, 3]]
+dict1 = {'user': 'runoob', 'num': [1, 2, 3]}
 
-# 浅拷贝
-list2 = list1[:]
-list3 = list1.copy()
+if __name__ == '__main__':
+    # 浅拷贝:引用对象
+    list2 = list1
+    # 浅拷贝:深拷贝父对象（一级目录），子对象（二级目录）不拷贝，还是引用
+    list3 = list1[:]
+    # 浅拷贝:深拷贝父对象（一级目录），子对象（二级目录）不拷贝，还是引用
+    list4 = list1.copy()
+    # 深拷贝
+    list5 = deepcopy(list1)
 
-# list2[3][2] = 5
-del list2[3]
+    list1[0] = 0
+    list1[3][2] = 'change'
 
-print(list3)
-print(list2)
-print(list1)
+    print('***列表输出结果***')
+    print(list1)
+    print(list2)
+    print(list3)
+    print(list4)
+    print(list5)
 
-# 翻转列表对象
-print(list1[::-1])
+    # 浅拷贝: 引用对象
+    dict2 = dict1
+    # 浅拷贝：深拷贝父对象（一级目录），子对象（二级目录）不拷贝，还是引用
+    dict3 = dict1.copy()
+    # 深拷贝
+    dict4 = deepcopy(dict1)
 
-class URLCatcher(object):
-    def __init__(self):
-        self.urls = []
+    # 修改 data 数据
+    dict1['user'] = 'root'
+    dict1['num'].remove(1)
 
-    def add_url(self, url):
-        return self.urls.append(url)
+    print('***字典输出结果***')
+    print(dict1)
+    print(dict2)
+    print(dict3)
+    print(dict4)
 
+    data = [
+        ("animal", "bear"),
+        ("animal", "duck"),
+        ("plant", "cactus"),
+        ("vehicle", "speed boat"),
+        ("vehicle", "school bus")
+    ]
 
-catcher_one = URLCatcher()
-catcher_one.add_url('http://www.baidu.com')
+    groups = defaultdict(list)
 
-catcher_two = URLCatcher()
-catcher_two.add_url('http://www.google.com')
+    for (key, value) in data:
+        groups[key].append(value)
 
-print(catcher_one.urls)
-print(catcher_two.urls)
-
-
-def add_url(var, urls=None):
-    if not urls:
-        urls = []
-    urls.append(var)
-    return urls
-
-
-print(add_url('http://www.baidu.com'))
-print(add_url('http://www.google.com'))
-
-
-list4 = [12, 'niubi', 'hah']
-list5 = list4.copy()
-del list5[1]
-
-print(list4)
-print(list5)
-
-
-cities = ['BeiJing', 'TianJin', 'JiNan', 'ShenZhen', 'WuHan']
-
-for index, city in enumerate(cities, 1):
-    print(index, ':', city)
+    print(groups)

@@ -100,3 +100,35 @@ print(list1[::-1])
 |list.sort([func]) |对原列表进行排序|
 |list.clear() |清空列表|
 |list.copy() |复制列表，浅拷贝|
+
+```python
+from copy import deepcopy
+
+list1 = [12, 'niubi', 'hah', [1, 2, 3]]
+
+if __name__ == '__main__':
+    # 浅拷贝:引用对象
+    list2 = list1
+    # 浅拷贝:深拷贝父对象（一级目录），子对象（二级目录）不拷贝，还是引用
+    list3 = list1[:]
+    # 浅拷贝:深拷贝父对象（一级目录），子对象（二级目录）不拷贝，还是引用
+    list4 = list1.copy()
+    # 深拷贝
+    list5 = deepcopy(list1)
+
+    list1[0] = 0
+    list1[3][2] = 'change'
+
+    print(list1)
+    print(list2)
+    print(list3)
+    print(list4)
+    print(list5)
+
+    #输出结果
+    [0, 'niubi', 'hah', [1, 2, 'change']]
+    [0, 'niubi', 'hah', [1, 2, 'change']]
+    [12, 'niubi', 'hah', [1, 2, 'change']]
+    [12, 'niubi', 'hah', [1, 2, 'change']]
+    [12, 'niubi', 'hah', [1, 2, 3]]
+```
