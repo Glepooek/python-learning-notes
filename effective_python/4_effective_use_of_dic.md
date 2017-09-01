@@ -18,7 +18,7 @@ if 'name' in dict:
 >Simple is better than complex.
 Flat is better than nested.
 
-好的代码应该是简单易懂的，扁平的代码结构更加可读。可以使用get方法来代替if … else
+好的代码应该是简单易懂的，扁平的代码结构更加可读。可以使用get方法来代替if … else语句。
 
 ```python
 bad
