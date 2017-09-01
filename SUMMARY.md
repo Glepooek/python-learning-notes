@@ -11,7 +11,7 @@
         * [字典](basic_data_types/6_dictionary.md)
     * [注释](comment/comment.md)
     * [内置模块](built-in_modules/README.md)
-        * [property()](built-in_modules/property.md)
+        * [property()](built-in_modules/property_built-in_function.md)
         * [itertools](built-in_modules/itertools_module.md)
     * [面向对象](object_oriented/README.md)
         * [面向对象基础](object_oriented/basic_object_oriented.md)
