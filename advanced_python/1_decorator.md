@@ -73,7 +73,7 @@ def log_cost_time(func):
         try:
             return func(*args, **kwargs)
         except Exception as e:
-                    print(str(e))
+            print(str(e))
         finally:
             print 'func %s cost %s' % (func.__name__, time.time() - begin)
     # return update_wrapper(wrapper, func)
