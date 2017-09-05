@@ -1,8 +1,5 @@
-### 面向对象进阶
-
-###### 用装饰器实现方法多态
-```python
 registry = {}
+
 
 class MultiMethod(object):
     def __init__(self, name):
@@ -21,6 +18,7 @@ class MultiMethod(object):
         if types in self.typemap:
             raise TypeError("duplicate registration")
         self.typemap[types] = func
+
 
 # def multimethod(*types):
 #     def register(func):
@@ -48,16 +46,18 @@ def multimethod(*types):
 
     return register
 
+
 @multimethod(int, int)
 @multimethod(int)
 def foo(a, b=10):
     return a + b
 
+
 @multimethod(str, str)
 def foo(a, b):
     return a + b
 
+
 if __name__ == '__main__':
     print(foo(12))
     print(foo('I', ' love you'))
-```
