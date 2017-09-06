@@ -269,6 +269,29 @@ print('{p[0]},{p[1]}'.format(p = p))
 |25|	{0:o}|	31	|转换成八进制|
 |25|	{0:x}|	19	|转换成十六进制|
 
+3）str.join(iterable)
+
+```python
+tup1 = ('hello','I love you')
+print(','.join(tup1))
+
+# 输出结果
+# 将字符串序列连接，用逗号分隔开
+hello,I love you
+```
+
+4）字符串的插值（F-Strings）
+字符串的插值方式能连接的不仅限于字符串类型。
+
+```python
+var1 = 'hello'
+var2 = 'I love you'
+var3 = 10000
+print(f'{var1},{var2} {var3}年')
+
+# 输出结果
+hello,I love you 10000年
+```
 
 ###### 8、字符串常用内置函数
 
