@@ -1,7 +1,7 @@
 # Summary
 
 * Python基础
-    * [基础语法](basic_grammar/basic_grammar.md)
+    * [基础语法](basic_grammar.md)
     * [基础数据类型](basic_data_types/README.md)
         * [数字](basic_data_types/1_number.md)
         * [字符串](basic_data_types/2_string.md)
@@ -9,7 +9,9 @@
         * [集合](basic_data_types/4_set.md)
         * [元组](basic_data_types/5_tuple.md)
         * [字典](basic_data_types/6_dictionary.md)
-    * [注释](comment/comment.md)
+    * [注释](comment.md)
+    * [条件控制](condition_control.md)
+    * [循环语句](loop.md)
     * [内置模块](built-in_modules/README.md)
         * [property()](built-in_modules/property_built-in_function.md)
         * [itertools](built-in_modules/itertools_module.md)
