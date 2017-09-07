@@ -1,4 +1,4 @@
-### 循环语句(loop)
+### 循环语句(```loop```)
 
 Python中的循环语句有：for、while。
 
@@ -68,10 +68,16 @@ else:
 
 ###### 5、break和continue语句及循环中的else子句
 break语句可以跳出for和while的循环体，即终止循环。
-如果从for或while循环中终止，任何对应的循环else块将不执行。
+如果从for或while循环中终止，任何循环对应的else子句将不执行。
 continue语句用来跳过当前循环中的剩余语句，然后继续进行下一轮循环。
 
 ```python
+for letter in 'Runoob':
+    if letter == 'o':
+        break
+    print('当前字母 :', letter)
+
+
 for letter in 'Runoob':
     if letter == 'o':
         continue
