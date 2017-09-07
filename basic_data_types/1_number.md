@@ -35,6 +35,21 @@ Python 支持三种不同的数值类型：
 - {}（空字典）
 - 用户自定义的类实例，该类定义了方法__nonzero__()或 __len__()，并且这些方法返回0或False
 
+```python
+class Number(object):
+    def __bool__(self):
+        return False
+
+    def __nonzero__(self):
+        # 兼容做法
+        return self.__bool__()
+
+print(bool(Number()))
+
+# 输出结果
+False
+```
+
 ###### 2、Python数字类型转换
 - bool(x) 将x转换为一个布尔类型。
 - int(x) 将x转换为一个整数。
