@@ -10,7 +10,7 @@
         * [元组](basic_data_types/5_tuple.md)
         * [字典](basic_data_types/6_dictionary.md)
     * [注释](comment.md)
-    * [条件控制](condition_control.md)
+    * [条件控制语句](condition_control.md)
     * [循环语句](loop.md)
     * [内置模块](built-in_modules/README.md)
         * [property()](built-in_modules/property_built-in_function.md)
