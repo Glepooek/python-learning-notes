@@ -26,7 +26,7 @@ finally:
 让我们看看如何来实现我们⾃⼰的上下⽂管理器。这会让我们更完全地理解在这些场景背后都发⽣着什么。
 
 ###### 基于类的实现
-⼀个上下⽂管理器的类，最起码要定义__enter__和__exit__⽅法。
+⼀个上下⽂管理器的类，最起码要定义```__enter__```和```__exit__```⽅法。
 现在来构造自己的开启⽂件的上下⽂管理器，并学习下基础知识。
 
 ```python
@@ -41,28 +41,28 @@ class File(object):
         self.file_obj.close()
 ```
 
-通过定义__enter__和__exit__⽅法，可以在with语句⾥使⽤它：
+通过定义```__enter__```和```__exit__```⽅法，可以在with语句⾥使⽤它：
 
 ```python
 with File('demo.txt', 'w') as opened_file:
     opened_file.write('hello!')
 ```
 
-__exit__函数接受三个参数。 这些参数对于每个上下⽂管理器类中的__exit__⽅法都是必须的。
+```__exit__```函数接受三个参数。 这些参数对于每个上下⽂管理器类中的```__exit__```⽅法都是必须的。
 来看看在底层都发⽣了什么。
-- 1. with语句先暂存了File类的__exit__⽅法
-- 2. 然后它调⽤File类的__enter__⽅法
-- 3. __enter__⽅法打开⽂件并返回给with语句
-- 4. 打开的⽂件句柄被传递给opened_file参数
-- 5. 在with语句内opened_file参数使⽤.write()来写⽂件
-- 6. with语句调⽤之前暂存的__exit__⽅法
-- 7. __exit__⽅法关闭了⽂件
+- with语句先暂存了File类的```__exit__```⽅法
+- 然后它调⽤File类的```__enter__```⽅法
+- ```__enter__```⽅法打开⽂件并返回给with语句
+- 打开的⽂件句柄被传递给opened_file参数
+- 在with语句内opened_file参数使⽤.write()来写⽂件
+- with语句调⽤之前暂存的```__exit__```⽅法
+- ```__exit__```⽅法关闭了⽂件
 
 
 ###### 处理异常
-直到现在还没有谈到__exit__⽅法的这三个参数：type, value和traceback。
-在第4步和第6步之间，如果发⽣异常，Python会将异常的type,value和traceback传递给__exit__⽅法。
-它让__exit__⽅法来决定如何关闭⽂件以及是否需要其他步骤。在案例中，我们并没有注意它们。
+直到现在还没有谈到```__exit__```⽅法的这三个参数：type, value和traceback。
+在第4步和第6步之间，如果发⽣异常，Python会将异常的type,value和traceback传递给```__exit__```⽅法。
+它让```__exit__```⽅法来决定如何关闭⽂件以及是否需要其他步骤。在案例中，我们并没有注意它们。
 那如果我们的⽂件对象抛出⼀个异常呢？ 举个例⼦，尝试访问⽂件对象的⼀个不⽀持的⽅法：
 
 ```python
@@ -71,11 +71,11 @@ with File('demo.txt', 'w') as opened_file:
 ```
 
 我们来列⼀下， 当异常发⽣时， with语句会采取哪些步骤。
-- 1. 它把异常的type,value和traceback传递给__exit__⽅法
-- 2. 它让__exit__⽅法来处理异常
-- 3. 如果__exit__返回的是True， 那么这个异常就被优雅地处理了。
-- 4. 如果__exit__返回的是True以外的任何东西，那么这个异常将被with语句抛出。
-在案例中，__exit__⽅法返回的是None(如果没有return语句那么⽅法会返回None)。因此，with语句抛出了那个异常。
+- 它把异常的type,value和traceback传递给```__exit__```⽅法
+- 它让```__exit__```⽅法来处理异常
+- 如果```__exit__```返回的是True， 那么这个异常就被优雅地处理了。
+- 如果```__exit__```返回的是True以外的任何东西，那么这个异常将被with语句抛出。
+在案例中，```__exit__```⽅法返回的是None(如果没有return语句那么⽅法会返回None)。因此，with语句抛出了那个异常。
 
 ```python
 Traceback (most recent call last):
@@ -107,7 +107,7 @@ with File('demo.txt', 'w') as opened_file:
 <class 'AttributeError'> '_io.TextIOWrapper' object has no attribute 'undefined_function' <traceback object at 0x02AFFD28>
 ```
 
-我们的__exit__⽅法返回了True,因此没有异常会被with语句抛出。
+我们的```__exit__```⽅法返回了True,因此没有异常会被with语句抛出。
 这还不是实现上下⽂管理器的唯⼀⽅式。 还有⼀种⽅式， 我们会在下⼀节中⼀起看看。
 
 
@@ -130,10 +130,10 @@ def open_file(name):
 和装饰器的⼀些知识。 在这个例⼦中我们还没有捕捉可能产⽣的任何异常。 它的⼯作⽅式
 和之前的⽅法⼤致相同。
 让我们小小地剖析下这个⽅法。
-- 1. Python解释器遇到了yield关键字。因为这个缘故它创建了⼀个⽣成器而不是⼀个普通的函数。
-- 2. 因为这个装饰器，contextmanager会被调⽤并传⼊函数名（open_file）作为参数。
-- 3. contextmanager函数返回⼀个以GeneratorContextManager对象封装过的⽣成器。
-- 4. 这个GeneratorContextManager被赋值给open_file函数，我们实际上是在调⽤GeneratorContextManager对象。
+- Python解释器遇到了yield关键字。因为这个缘故它创建了⼀个⽣成器而不是⼀个普通的函数。
+- 因为这个装饰器，contextmanager会被调⽤并传⼊函数名（open_file）作为参数。
+- contextmanager函数返回⼀个以GeneratorContextManager对象封装过的⽣成器。
+- 这个GeneratorContextManager被赋值给open_file函数，我们实际上是在调⽤GeneratorContextManager对象。
 那现在我们既然知道了所有这些，我们可以⽤这个新⽣成的上下⽂管理器了， 像这样：
 
 ```python
