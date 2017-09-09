@@ -84,7 +84,7 @@ Traceback (most recent call last):
 AttributeError: '_io.TextIOWrapper' object has no attribute 'undefined_function'
 ```
 
-我们尝试下在__exit__⽅法中处理异常：
+我们尝试下在```__exit__```⽅法中处理异常：
 
 ```python
 class File(object):
@@ -121,9 +121,9 @@ from contextlib import contextmanager
 
 @contextmanager
 def open_file(name):
-    f = open(name, 'w')
-    yield f
-    f.close()
+    file = open(name, 'w')
+    yield file
+    file.close()
 ```
 
 这个实现⽅式看起来更加直观和简单。 然⽽， 这个⽅法需要关于⽣成器、 yield
