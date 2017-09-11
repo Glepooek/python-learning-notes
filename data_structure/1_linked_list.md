@@ -161,7 +161,7 @@ def remove(self, item):
 
 3.5.1 上面的特殊情况，即要删除的恰好是第一个节点的图解如下：
 
-![单向链表构造图](linked_list_images/figure_7.png)
+![恰好删除第一个节点](linked_list_images/figure_7.png)
 
 3.5.2 其他情况，即要删除的是链表中的节点（非第一个）：
 遍历链表，先搜索，再删除。
@@ -175,7 +175,7 @@ def remove(self, item):
 
 以上两过程的图解如下：
 
-![单向链表构造图](linked_list_images/figure_8.png)
+![两过程的图解](linked_list_images/figure_8.jpg)
 
 
 参考：
