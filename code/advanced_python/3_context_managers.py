@@ -6,6 +6,9 @@ class File(object):
     用类实现上下文管理器
     """
 
+    # 用固定集合来分配空间，避免随意增加属性
+    __slots__ = ['file_obj']
+
     def __init__(self, file_name, mode):
         self.file_obj = open(file_name, mode, encoding='utf-8')
 
