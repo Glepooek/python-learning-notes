@@ -10,11 +10,11 @@
 - 信息域：当前节点的值(Data or Value)
 - 指针域：指向下一个节点的指针链接(Reference or Link)
 
-![单向链表构造图](linked_list_images/figure_1.png)
+<center>![单向链表构造图](linked_list_images/figure_1.png)</center>
 
-注1：必须明确指定链表的第一项的位置。一旦知道第一项在哪里，第一项可以告诉我们第二项是什么，依次类推。
+- 注1：必须明确指定链表的第一项的位置。一旦知道第一项在哪里，第一项可以告诉我们第二项是什么，依次类推。
 按照一个方向遍历，直到最后一项（最后一个节点），最后一项需要知道没有下一项。
-注2：这些节点在逻辑上是相连的，但要知道它们在物理内存上并不相连。
+- 注2：这些节点在逻辑上是相连的，但要知道它们在物理内存上并不相连。
 
 ###### 2、准备工作
 
@@ -179,6 +179,7 @@ def remove(self, item):
 
 
 参考：
+
 http://interactivepython.org/runestone/static/pythonds/index.html
 https://en.wikipedia.org/wiki/Python
 
