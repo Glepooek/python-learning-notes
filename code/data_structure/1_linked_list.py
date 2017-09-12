@@ -110,8 +110,8 @@ if __name__ == '__main__':
     print(linked_list.search(199))
     linked_list.remove(100)
 
-    if linked_list.head:
-        current = linked_list.head
-        while current:
-            print(current.data)
-            current = current.get_next()
+    # if linked_list.head:
+    #     current = linked_list.head
+    #     while current:
+    #         print(current.data)
+    #         current = current.get_next()
