@@ -23,8 +23,7 @@ Python 3.0版本，常被称为Python 3000，或简称Py3k。相对于Python的�
 - Google官方英文原版：[GitHub地址](https://github.com/google/styleguide)
 
 #### Python开源库
-- [PyMySQL](https://github.com/PyMySQL/PyMySQL)
-- [Django](https://github.com/django/django)
+- [第三方库汇总](https://www.gitbook.com/book/glepooek/python-third-party-libraries/details)
 
 #### Python开发工具
 - [PyCharm](https://www.jetbrains.com/pycharm/)
