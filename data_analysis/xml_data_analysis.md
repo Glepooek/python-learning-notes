@@ -12,40 +12,47 @@ python主要有三种方法解析XML:
 SAX是一种基于事件驱动的API。
 利用SAX解析XML文档牵涉到两个部分:解析器和事件处理器。
 解析器负责读取XML文档，并向事件处理器发送事件，如元素开始、结束事件；
-而事件处理器则负责对事件作出相应，对传递的XML数据进行处理。
+而事件处理器则负责对事件作出响应，对传递的XML数据进行处理。
 在以下情况下可考虑使用SAX解析XML文件：
 - 对大型文件进行处理；
-- 只需要文件的部分内容，或者只需从文件中得到特定信息。
-- 想建立自己的对象模型的时候。
+- 只需要文件的部分内容，或者只需从文件中得到特定信息；
+- 想建立自己的对象模型。
 
-ContentHandler类方法介绍：
+>xml.sax.handler模块中ContentHandler类方法介绍：
 
 1) characters(content)方法
+
 获取标签的值。标签可以是开始标签，也可以是结束标签。
 - 从行开始，遇到标签之前，存在字符，content的值为这些字符串。
 - 从一个标签，遇到下一个标签之前， 存在字符，content的值为这些字符串。
 - 从一个标签，遇到行结束符之前，存在字符，content的值为这些字符串。
 
 2) startDocument()方法
+
 文档启动的时候调用。
 
 3) endDocument()方法
+
 解析器到达文档结尾时调用。
 
 4) startElement(name, attrs)方法
+
 遇到XML开始标签时调用，name是标签的名字，attrs是标签的属性值字典。
 
 5) endElement(name)方法
+
 遇到XML结束标签时调用。
 
-xml.sax模块相关方法介绍：
+>xml.sax模块相关方法介绍：
 
 1) xml.sax.make_parser([parser_list])
+
 创建一个新的解析器对象并返回，
 参数说明:
 - parser_list - 可选参数，解析器列表
 
 2) xml.sax.parse(xmlfile, contenthandler[, errorhandler])
+
 创建一个SAX解析器并解析xml文档，
 参数说明:
 - xmlfile - xml文件名
@@ -53,6 +60,7 @@ xml.sax模块相关方法介绍：
 - errorhandler - 如果指定该参数，errorhandler必须是一个SAX ErrorHandler对象
 
 3) xml.sax.parseString(xmlstring, contenthandler[, errorhandler])
+
 创建一个XML解析器并解析xml字符串，
 参数说明:
 - xmlstring - xml字符串
@@ -97,7 +105,6 @@ class MovieHandler(ContentHandler):
         if content:
             self.CurrentTagValue = content
 
-
 if __name__ == '__main__':
     # 创建一个解析器
     parser = make_parser()
@@ -109,38 +116,6 @@ if __name__ == '__main__':
     parser.setContentHandler(Handler)
 
     parser.parse("movies.xml")
-
-# 输出结果
-*****Movie*****
-Title: Enemy Behind
-Type: War, Thriller
-Format: DVD
-Year: 2003
-Rating: PG
-Stars: 10
-Description: Talk about a US-Japan war
-*****Movie*****
-Title: Transformers
-Type: Anime, Science Fiction
-Format: DVD
-Year: 1989
-Rating: R
-Stars: 8
-Description: A schientific fiction
-*****Movie*****
-Title: Trigun
-Type: Anime, Action
-Format: DVD
-Rating: PG
-Stars: 10
-Description: Vash the Stampede!
-*****Movie*****
-Title: Ishtar
-Type: Comedy
-Format: VHS
-Rating: PG
-Stars: 2
-Description: Viewable boredom
 ```
 
 ###### 2、DOM
@@ -175,33 +150,6 @@ for movie in movies:
    print ("Rating: %s" % rating.childNodes[0].data)
    description = movie.getElementsByTagName('description')[0]
    print ("Description: %s" % description.childNodes[0].data)
-
-# 程序执行结果如下：
-Root element : New Arrivals
-*****Movie*****
-Title: Enemy Behind
-Type: War, Thriller
-Format: DVD
-Rating: PG
-Description: Talk about a US-Japan war
-*****Movie*****
-Title: Transformers
-Type: Anime, Science Fiction
-Format: DVD
-Rating: R
-Description: A schientific fiction
-*****Movie*****
-Title: Trigun
-Type: Anime, Action
-Format: DVD
-Rating: PG
-Description: Vash the Stampede!
-*****Movie*****
-Title: Ishtar
-Type: Comedy
-Format: VHS
-Rating: PG
-Description: Viewable boredom
 ```
 
 ###### 3、ElementTree
