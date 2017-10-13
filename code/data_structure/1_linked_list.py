@@ -1,3 +1,6 @@
+__author__ = 'projectx'
+
+
 class Node(object):
     def __init__(self, init_data):
         # 节点存储的数据
