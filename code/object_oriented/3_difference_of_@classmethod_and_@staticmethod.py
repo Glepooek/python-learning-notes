@@ -14,9 +14,14 @@ class A(object):
 if __name__ == '__main__':
     a = A()
     a.m1(1)
-    print(a.m1)
     A.m1(a, 1)
     print(A.m1)
+    print(a.m1)
 
     A.m2(2)
+    print(A.m2)
+    print(a.m2)
+
     A.m3(3)
+    print(A.m3)
+    print(a.m3)
