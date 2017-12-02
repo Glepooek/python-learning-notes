@@ -56,3 +56,22 @@ total = item_one + \
 days = ['Monday', 'Tuesday', 'Wednesday',
         'Thursday', 'Friday']
 ```
+
+6、变量和赋值
+
+>参考文章：
+- [图解Python变量与赋值](https://foofish.net/python-variable.html)
+
+在python中,“变量”的严格叫法是“名字(name)”，也可以理解为标签，就像我们人的姓名一样，名字就是挂在人身上的一个标签。
+变量本身没有类型信息，真正的信息都在对象身上。给变量赋值就是相当于给对象贴标签。
+
+```python
+# 定义变量a，并赋值为1。
+# Python会先分配内存，用于创建并存放对象1，然后为对象1贴上标签a
+# 创建变量a并不用分配内存
+a = 1
+
+# 为对象1贴上标签b
+# 创建变量b并不用分配内存
+b = a
+```
