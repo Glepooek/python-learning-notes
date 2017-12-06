@@ -50,6 +50,7 @@
 * [数据结构](data_structure/README.md)
     * [链表](data_structure/1_linked_list.md)
 * [设计模式](design_pattern/README.md)
+    * [单利模式](data_structure/creational/singleton.md)
 * [Python风格指南](python_style_guide/README.md)
     * [Python语言规范](python_style_guide/python_language_rules.md)
     * [Python风格规范](python_style_guide/python_style_rules.md)
