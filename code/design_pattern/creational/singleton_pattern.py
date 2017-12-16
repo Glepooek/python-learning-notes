@@ -34,10 +34,10 @@ class VisitEntity(threading.Thread):
     my_bus = ""
     name = ""
 
-    def getName(self):
+    def get_name(self):
         return self.name
 
-    def setName(self, name):
+    def set_name(self, name):
         self.name = name
 
     def run(self):
@@ -49,5 +49,5 @@ if __name__ == "__main__":
     for i in range(3):
         print("Entity %d begin to run..." % i)
         my_entity = VisitEntity()
-        my_entity.setName("Entity_" + str(i))
+        my_entity.set_name("Entity_" + str(i))
         my_entity.start()
