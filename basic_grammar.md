@@ -14,14 +14,17 @@
 - 标识符对大小写敏感
 - 关键字不能被用作任何标识符名称
 
-以下划线开头的标识符是有特殊意义的。以单下划线开头，如```_foo```， 代表不能直接访问的类属性，需通过类提供的接口进行访问，不能用 from xxx import * 而导入；
-以双下划线开头，如```__foo```，代表类的私有成员；以双下划线开头和结尾的，形如```__foo__```，代表Python里特殊方法专用的标识，如```__init__() ```代表类的构造函数。
+以下划线开头的标识符是有特殊意义的。
+以单下划线开头，如```_foo```， 代表不能直接访问的类属性，需通过类提供的接口进行访问，不能用 from xxx import * 而导入；
+以双下划线开头，如```__foo```，代表类的私有成员；
+以双下划线开头和结尾的，形如```__foo__```，代表Python里特殊方法专用的标识，如```__init__() ```代表类的构造函数。
 
 Python的标准库提供了一个keyword模块，可以输出当前版本的所有关键字：
 ```python
 >>> import keyword
 >>> keyword.kwlist
-['False', 'None', 'True', 'and', 'as', 'assert', 'break', 'class', 'continue', 'def', 'del', 'elif', 'else', 'except', 'finally', 'for', 'from', 'global', 'if', 'import', 'in', 'is', 'lambda', 'nonlocal', 'not', 'or', 'pass', 'raise', 'return', 'try', 'while', 'with', 'yield']
+['False', 'None', 'True', 'and', 'as', 'assert', 'break', 'class', 'continue', 'def', 'del', 'elif', 'else', 'except', 'finally', 'for',
+ 'from', 'global', 'if', 'import', 'in', 'is', 'lambda', 'nonlocal', 'not', 'or', 'pass', 'raise', 'return', 'try', 'while', 'with', 'yield']
 ```
 
 3、行与缩进
@@ -51,7 +54,7 @@ total = item_one + \
         item_three
 ```
 
-语句中包含 [], {} 或 () 括号就不需要使用多行连接符。
+语句中包含 [], {} 或 () 就不需要使用多行连接符。
 ```python
 days = ['Monday', 'Tuesday', 'Wednesday',
         'Thursday', 'Friday']

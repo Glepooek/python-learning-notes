@@ -34,7 +34,7 @@
     * [内置函数](built-in_functions/README.md)
         * [property()](built-in_functions/property_built-in_function.md)
     * [内置模块](built-in_modules/README.md)
-        * [itertools](built-in_modules/itertools_module.md)
+        * [itertools](built-in_modules/itertools_moduleitertools_module.md)
     * [单元测试](unittest_framework/README.md)
 * [Python进阶](advanced_python/README.md)
     * [装饰器](advanced_python/1_decorator.md)
