@@ -330,7 +330,7 @@ hello,I love you 10000年
 | replace\(old, new \[, max\]\) | 把 将字符串中的str1替换成str2,如果 max 指定，则替换不超过 max 次。 |
 | split\(str="", num=string.count\(str\)\) | num=string.count\(str\)\) 以 str 为分隔符截取字符串，如果 num 有指定值，则仅截取 num 个子字符串 |
 | splitlines\(\[keepends\]\) | 按照行\('\r', '\r\n', \n'\)分隔，返回一个包含各行作为元素的列表，如果参数 keepends 为 False，不包含换行符，如果为 True，则保留换行符。 |
-| join\(seq\) | 以指定字符串作为分隔符，将 seq 中所有的元素\(的字符串表示\)合并为一个新的字符串 |
+| join\(seq\) | 以指定字符串作为分隔符，将seq中所有的元素\(的字符串表示\)合并为一个新的字符串 |
 | max\(str\) | 返回字符串str中最大的字母。 |
 | min\(str\) | 返回字符串str中最小的字母。 |
 | isalnum\(\) | 如果字符串至少有一个字符并且所有字符都是字母或数字则返 回True,否则返回False |

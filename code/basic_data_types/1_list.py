@@ -1,6 +1,9 @@
 from copy import deepcopy
 
 list1 = [12, 'niubi', 'hah', [1, 2, 3]]
+name = list("Perl")
+numbers = [1, 5]
+full_numbers = [1, 2, 3, 4, 5]
 
 if __name__ == '__main__':
     # 浅拷贝:引用对象
@@ -15,9 +18,26 @@ if __name__ == '__main__':
     list1[0] = 0
     list1[3][2] = 'change'
 
-    print('***列表输出结果***')
+    print('***拷贝列表输出结果***')
     print(list1)
     print(list2)
     print(list3)
     print(list4)
     print(list5)
+
+    # del list1
+    print('***分片赋值输出结果***')
+    name[1:] = list("ython")
+    print(name)
+    numbers[1:1] = [4, 2, 3, 9]
+    print(numbers)
+    full_numbers[1:4] = []
+    print(full_numbers)
+
+    print('***排序输出结果***')
+    # numbers.sort()
+    # print(numbers)
+
+    list1 = ["google", 'niubi', 'hah', 'python']
+    list1.sort(key=len, reverse=True)
+    print(list1)
