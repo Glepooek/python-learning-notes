@@ -111,6 +111,7 @@ print(full_numbers)
 ###### 8、列表函数
 
 | 函数 | 描述 |
+| :--- | :--- |
 |list.append(obj) |在列表末尾追加元素|
 |list.count(obj) |统计某个元素在列表中出现的次数|
 |list.extend(seq) |在列表末尾一次性追加另一个序列中的所有元素来扩展原来的列表|
