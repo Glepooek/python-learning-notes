@@ -1,8 +1,9 @@
 ### 字符串\(`String`\)
 
-字符串是Python中最常用的数据类型。在Python3中，所有的字符串都是`Unicode字符串`。  
-Python不支持单字符类型，单字符在Python也是作为一个字符串使用。  
-使用单引号号\('\)、双引号\("\)或三引号\('''、"""\)来创建字符串，  
+字符串是Python中最常用的数据类型之一，```字符串不可修改```。
+在Python3中，所有的字符串都是`Unicode字符串`。
+Python不支持单字符类型，单字符在Python中也是作为一个字符串使用。
+使用单引号号('')、双引号("")或三引号('''、""")来创建字符串，
 其中三引号允许一个字符串跨多行，字符串中可以包含`换行符、制表符以及其他特殊字符`。如：
 
 ```python
@@ -16,7 +17,7 @@ TAB ( \t )。
 '''
 ```
 
-原始字符串，在字符串中可以包含`换行符、制表符以及其他特殊字符`等特殊字符，但是字符串的最后一个字符不能是反斜杠，如：
+原始字符串，在字符串中也可以包含`换行符、制表符以及其他特殊字符`等特殊字符，但是字符串的最后一个字符不能是反斜杠，如：
 ```python
 str1 = r'hello \nworld!'
 ```
@@ -30,9 +31,10 @@ var3 = ''''''
 var4 = """"""
 ```
 
-###### 2、字符串索引，截取
+###### 2、字符串索引，分片
 
-字符串下标索引左边从0开始，右边从-1开始，可以进行索引、截取、组合等。  
+字符串下标索引左边从0开始，右边从-1开始，可以进行索引、分片。
+
 L = 'Google'
 
 | Python表达式 | 结果 | 描述 |
@@ -84,12 +86,12 @@ NameError: name 'tup' is not defined
 
 ###### 5、Python转义字符
 
-在字符串中使用特殊字符时，python用反斜杠\(\)转义字符。如下表：
+在字符串中使用特殊字符时，python用反斜杠(\)转义字符。如下表：
 
 | 转义字符 | 描述 |
 | :--- | :--- |
-| `\(在行尾时)` | 续行符 |
-| `\\` | 反斜杠符号 |
+| \(在行尾时) | 续行符 |
+| \\ | 反斜杠符号 |
 | \' | 单引号 |
 | \" | 双引号 |
 | \a | 响铃 |
@@ -109,32 +111,37 @@ NameError: name 'tup' is not defined
 
 | 操作符 | 描述 |
 | :--- | :--- |
-| + | 字符串连接 |
-| \* | 重复输出字符串 |
-| \[\] | 通过索引获取字符串中字符 |
-| \[:\] | 截取字符串中的一部分 |
-| in | 成员运算符，如果字符串中包含给定的字符返回True |
+| +    | 字符串连接 |
+| *    | 重复输出字符串 |
+| []   | 通过索引获取字符串中字符 |
+| [:]  | 截取字符串中的一部分 |
+| in   | 成员运算符，如果字符串中包含给定的字符返回True |
 | not in | 成员运算符，如果字符串中不包含给定的字符返回True |
-| r/R | 原始字符串，所有字符都是按照字面意思来使用，没有特殊字符。  |
-| % | 格式字符串 |
+| r/R  | 原始字符串，所有字符都是按照字面意思来使用，没有特殊字符。  |
+| %    | 格式字符串 |
 
 ###### 7、字符串格式化
 
 1）%格式化操作
 
 Python2.6之前的版本中使用`%`对字符串进行格式化操作。
+在%的左侧放置一个字符串，在%的右侧放置希望格式化的值，可以使用一个值，如字符串或数字，也可以使用有多个值的元组或字典。
+如果要在格式化的字符串里包括%，必须使用%%。
 
 ```python
+# 格式化字符类型
 str1 = 'I love %s' % ('python')
 print(str1)
 # output:
 I love python
 
+# 格式化整数类型
 str2 = "我叫 %s 今年 %d 岁!" % ('小明', 10)
 print(str2)
 # output:
 我叫 小明 今年 10 岁!
 
+# 格式化浮点类型
 str3 = '这是测试数据：%.*f' % (5, 20)
 print(str3)
 # output:
@@ -145,16 +152,17 @@ Python字符串格式化符号:
 
 | 符号  | 描述 |
 | :---  | :--- |
-|  %c	| 格式化字符及其ASCII码|
-|  %s	| 格式化字符串|
-|  %d	| 格式化整数|
-|  %u	| 格式化无符号整型|
-|  %o	| 格式化无符号八进制数|
-|  %x	| 格式化无符号十六进制数|
+|  %d或%i	| 格式化带符号十进制整数|
+|  %u	| 格式化无符号十进制整数|
+|  %x	| 格式化无符号十六进制数（小写）|
 |  %X	| 格式化无符号十六进制数（大写）|
-|  %f	| 格式化浮点数字，可指定小数点后的精度|
-|  %e	| 用科学计数法格式化浮点数|
-|  %E	| 作用同%e，用科学计数法格式化浮点数|
+|  %o	| 格式化无符号八进制数|
+|  %c	| 格式化字符及其ASCII码|
+|  %s	| 格式化字符串,使用str转换|
+|  %r	| 格式化字符串,使用repr转换|
+|  %f	| 格式化浮点数，可指定小数点后的精度|
+|  %e	| 用科学计数法格式化浮点数（小写）|
+|  %E	| 作用同%e，用科学计数法格式化浮点数（大写）|
 |  %g	| 指数(e)或浮点数 (根据显示长度)|
 |  %G	| 指数(E)或浮点数 (根据显示长度)|
 |  %p	| 用十六进制数格式化变量的地址|
@@ -164,18 +172,46 @@ Python字符串格式化符号:
 | 符号  | 描述 |
 | :---  | :--- |
 |*	|定义宽度或者小数点精度|
-|-	|用做左对齐|
-|+	|在正数前面显示加号( + )|
-|```<sp>```|在正数前面显示空格|
-|#	|在八进制数前面显示零('0')，在十六进制前面显示'0x'或者'0X'(取决于用的是'x'还是'X')|
+|m.n|m 是显示的最小总宽度,n 是小数点后的位数(如果可用的话)|
 |0	|显示的数字前面填充'0'而不是默认的空格|
+|-	|用做左对齐|
+|+	|在正数前面显示加号(+)，使负数显示出负号(-)|
+|"" |在正数前面显示空白|
+|#	|在八进制数前面显示零('0')，在十六进制前面显示'0x'或者'0X'(取决于用的是'x'还是'X')|
 |%	|'%%'输出一个单一的'%'|
 |(var)|	映射变量(字典参数)|
-|m.n.|m 是显示的最小总宽度,n 是小数点后的位数(如果可用的话)|
 
-2）str.format()
+2）模板字符串
 
-Python2.6开始，新增了一种格式化字符串的函数str.format\(\)，它增强了字符串格式化的功能。
+```python
+from string import Template
+
+var4 = Template("$key, I love you $value years")
+# 带美元符号
+var5 = Template("this book costs $$$key")
+# 单词的一部分
+var6 = Template("I love ${x}ython")
+
+# 利用字典传值
+# d = {}
+# d['key'] = 'lff'
+# d['value'] = 10000
+# print(var4.safe_substitute(d))
+
+# 关键参数传值
+print(var4.safe_substitute(key='lff', value=10000))
+print(var5.safe_substitute(key=10))
+print(var6.safe_substitute(x='p'))
+
+# output
+lff, I love you 10000 years
+this book costs $10
+I love python
+```
+
+3）str.format()
+
+Python2.6开始，新增了一种格式化字符串的函数str.format()，它增强了字符串格式化的功能。
 基本语法是通过`{}和:`来代替以前的`%`。
 
 通过位置
@@ -222,8 +258,8 @@ hello Kevin lu i am Tom
 class Person:
     def __init__(self,name,age):
         self.name,self.age = name,age
-        def __str__(self):
-            return 'This guy is {self.name},is {self.age} old'.format(self=self)
+    def __str__(self):
+        return 'This guy is {self.name},is {self.age} years old'.format(self=self)
 
 print(str(Person('kzc',18)))
 #output:
@@ -274,7 +310,7 @@ print('{p[0]},{p[1]}'.format(p = p))
 |25|	{0:o}|	31	|转换成八进制|
 |25|	{0:x}|	19	|转换成十六进制|
 
-3）str.join(iterable)
+4）str.join(iterable)
 
 ```python
 tup1 = ('hello','I love you')
@@ -285,7 +321,7 @@ print(','.join(tup1))
 hello,I love you
 ```
 
-4）字符串的插值（F-Strings）
+5）字符串的插值（F-Strings）
 字符串的插值方式能连接的不仅限于字符串类型。
 
 ```python
@@ -298,50 +334,56 @@ print(f'{var1},{var2} {var3}年')
 hello,I love you 10000年
 ```
 
-###### 8、字符串常用内置函数
+###### 8、Python内置函数
 
 | 方法 | 描述 |
 | :--- | :--- |
-| capitalize\(\) | 将字符串的第一个字符转换为大写 |
-| lower\(\) | 转换字符串中所有大写字符为小写 |
-| upper\(\) | 转换字符串中的小写字母为大写 |
-| swapcase\(\) | 将字符串中大写转换为小写，小写转换为大写 |
-| title\(\) | 返回"标题化"的字符串,就是说所有单词都是以大写开始，其余字母均为小写\(见istitle\(\)\) |
-| islower\(\) | 如果字符串中包含至少一个区分大小写的字符，并且所有这些\(区分大小写的\)字符都是小写，则返回True，否则返回False |
-| isupper\(\) | 如果字符串中包含至少一个区分大小写的字符，并且所有这些\(区分大小写的\)字符都是大写，则返回True，否则返回False |
-| istitle\(\) | 如果字符串是标题化的\(见title\(\)\)则返回True，否则返回False |
-| startswith\(str, beg=0,end=len\(string\)\) | 检查字符串是否是以str开头，是则返回True，否则返回False。如果beg 和end指定值，则在指定范围内检查。 |
-| endswith\(str, beg=0, end=len\(string\)\) | 检查字符串是否以str结束，如果beg或者end指定则检查指定的范围内是否以str结束，如果是，返回True,否则返回False |
-| center\(width, fillchar\) | 返回一个指定的宽度width居中的字符串，fillchar为填充的字符，默认为空格。 |
-| zfill \(width\) | 返回长度为width的字符串，原字符串右对齐，前面填充0 |
-| ljust\(width\[, fillchar\]\) | 返回一个原字符串左对齐,并使用fillchar填充至长度width的新字符串，fillchar默认为空格。 |
-| rjust\(width,\[, fillchar\]\) | 返回一个原字符串右对齐,并使用fillchar\(默认空格）填充至长度 width 的新字符串 |
-| strip\(\[chars\]\) | 在字符串上执行lstrip\(\)和 rstrip\(\) |
-| lstrip\(\) | 截掉字符串左边的空格或指定字符。 |
-| rstrip\(\) | 截掉字符串字符串末尾的空格 |
-| len\(string\) | 返回字符串长度 |
-| count\(str, beg= 0,end=len\(string\)\) | 返回str在string里面出现的次数，如果beg或者end指定则返回指定范围内str出现的次数 |
-| bytes.decode\(encoding="utf-8", errors="strict"\) | Python3中没有 decode 方法，但我们可以使用 bytes 对象的 decode\(\) 方法来解码给定的 bytes 对象，这个 bytes 对象可以由 str.encode\(\) 来编码返回。 |
-| encode\(encoding='UTF-8',errors='strict'\) | 以 encoding 指定的编码格式编码字符串，如果出错默认报一个ValueError 的异常，除非 errors 指定的是'ignore'或者'replace' |
-| find\(str, beg=0 end=len\(string\)\) | 检测str是否包含在字符串中，如果beg和end指定范围，则检查是否包含在指定范围内，如果是返回开始的索引值，否则返回-1 |
-| index\(str, beg=0, end=len\(string\)\) | 跟find\(\)方法一样，只不过如果str不在字符串中会报一个异常 |
-| rfind\(str, beg=0,end=len\(string\)\) | 类似于find\(\)函数，不过是从右边开始查找 |
-| rindex\( str, beg=0, end=len\(string\)\) | 类似于index\(\)，不过是从右边开始 |
-| replace\(old, new \[, max\]\) | 把 将字符串中的str1替换成str2,如果 max 指定，则替换不超过 max 次。 |
-| split\(str="", num=string.count\(str\)\) | num=string.count\(str\)\) 以 str 为分隔符截取字符串，如果 num 有指定值，则仅截取 num 个子字符串 |
-| splitlines\(\[keepends\]\) | 按照行\('\r', '\r\n', \n'\)分隔，返回一个包含各行作为元素的列表，如果参数 keepends 为 False，不包含换行符，如果为 True，则保留换行符。 |
-| join\(seq\) | 以指定字符串作为分隔符，将seq中所有的元素\(的字符串表示\)合并为一个新的字符串 |
-| max\(str\) | 返回字符串str中最大的字母。 |
-| min\(str\) | 返回字符串str中最小的字母。 |
-| isalnum\(\) | 如果字符串至少有一个字符并且所有字符都是字母或数字则返 回True,否则返回False |
-| isalpha\(\) | 如果字符串至少有一个字符并且所有字符都是字母则返回True, 否则返回 False |
-| isdigit\(\) | 如果字符串只包含数字则返回True，否则返回False |
-| isnumeric\(\) | 如果字符串中只包含数字字符，则返回True，否则返回 False |
-| isdecimal\(\) | 检查字符串是否只包含十进制字符，如果是返回true，否则返回false。 |
-| isspace\(\) | 如果字符串中只包含空白，则返回True，否则返回False |
-| maketrans\(\) | 创建字符映射的转换表。第一个参数是字符串，表示需要转换的字符，第二个参数是字符串，表示转换的目标。 |
-| translate\(table, deletechars=""\) | 根据str给出的表\(包含256个字符\)转换string的字符, 要过滤掉的字符放到deletechars参数中 |
-| expandtabs\(tabsize=8\) | 把字符串string中的tab符号转为空格，tab符号默认的空格数是8。 |
+| max(str) | 返回字符串str中最大的字母 |
+| min(str) | 返回字符串str中最小的字母 |
+| len(str) | 返回字符串长度 |
+| str(object)\repr(object) | 将object转换为字符串 |
+
+###### 9、字符串函数
+
+| 方法 | 描述 |
+| :--- | :--- |
+| capitalize() | 将字符串的第一个字符转换为大写 |
+| lower() | 转换字符串中所有大写字符为小写 |
+| upper() | 转换字符串中的小写字母为大写 |
+| swapcase() | 将字符串中大写转换为小写，小写转换为大写 |
+| title() | 返回"标题化"的字符串,就是说所有单词都是以大写开始，其余字母均为小写(见istitle()) |
+| islower() | 如果字符串中包含至少一个区分大小写的字符，并且所有这些(区分大小写的)字符都是小写，则返回True，否则返回False |
+| isupper() | 如果字符串中包含至少一个区分大小写的字符，并且所有这些(区分大小写的)字符都是大写，则返回True，否则返回False |
+| istitle() | 如果字符串是标题化的(见title())则返回True，否则返回False |
+| startswith(str, beg=0,end=len(string)) | 检查字符串是否是以str开头，是则返回True，否则返回False。如果beg 和end指定值，则在指定范围内检查。 |
+| endswith(str, beg=0, end=len(string)) | 检查字符串是否以str结束，如果beg或者end指定则检查指定的范围内是否以str结束，如果是，返回True,否则返回False |
+| center(width, fillchar) | 返回一个指定的宽度width居中的字符串，fillchar为填充的字符，默认为空格。 |
+| zfill(width) | 返回长度为width的字符串，原字符串右对齐，前面填充0 |
+| ljust(width[, fillchar]) | 返回一个原字符串左对齐,并使用fillchar填充至长度width的新字符串，fillchar默认为空格。 |
+| rjust(width,[, fillchar]) | 返回一个原字符串右对齐,并使用fillchar(默认空格）填充至长度 width 的新字符串 |
+| strip([chars]) | 去除字符串两侧空格或指定字符 |
+| lstrip([chars]) | 去除字符串左边的空格或指定字符 |
+| rstrip([chars]) | 去除字符串字符串右边的空格或指定字符 |
+| count(str, beg= 0,end=len(string)) | 返回str在string里面出现的次数，如果beg或者end指定则返回指定范围内str出现的次数 |
+| bytes.decode(encoding="utf-8", errors="strict") | Python3中没有decode方法，但可以使用bytes对象的decode()方法来解码给定的bytes对象，这个bytes对象可以由str.encode()来编码返回。 |
+| encode(encoding='UTF-8',errors='strict') | 以 encoding 指定的编码格式编码字符串，如果出错默认报一个ValueError 的异常，除非 errors 指定的是'ignore'或者'replace' |
+| find(str, beg=0 end=len(string)) | 检测str是否包含在字符串中，如果beg和end指定范围，则检查是否包含在指定范围内，如果是返回开始的索引值，否则返回-1 |
+| index(str, beg=0, end=len(string)) | 跟find()方法一样，只不过如果str不在字符串中会报一个异常 |
+| rfind(str, beg=0,end=len(string)) | 类似于find()函数，不过是从右边开始查找 |
+| rindex( str, beg=0, end=len(string)) | 类似于index()，不过是从右边开始 |
+| replace(old, new [, count]) | 将字符串中的old替换成new,如果指定count，则替换不超过count次。 |
+| split(sep, maxsplit) | 以sep为分隔符截取字符串，如果maxsplit有指定值，则仅截取maxsplit个子字符串 |
+| splitlines([keepends]) | 按照行('\r', '\r\n', \n'\)分隔，返回一个包含各行作为元素的列表，如果参数 keepends 为 False，不包含换行符，如果为 True，则保留换行符。 |
+| join(seq) | 以指定字符串作为分隔符，将seq中所有的元素合并为一个新的字符串 |
+| isalnum() | 如果字符串至少有一个字符并且所有字符都是字母或数字则返 回True,否则返回False |
+| isalpha() | 如果字符串至少有一个字符并且所有字符都是字母则返回True, 否则返回 False |
+| isdigit() | 如果字符串只包含数字则返回True，否则返回False |
+| isnumeric() | 如果字符串中只包含数字字符，则返回True，否则返回 False |
+| isdecimal() | 检查字符串是否只包含十进制字符，如果是返回true，否则返回false。 |
+| isspace() | 如果字符串中只包含空白，则返回True，否则返回False |
+| maketrans() | 创建字符映射的转换表。第一个参数是字符串，表示需要转换的字符，第二个参数是字符串，表示转换的目标。 |
+| translate(table, deletechars) | 根据str给出的表(包含256个字符)转换string的字符, 要过滤掉的字符放到deletechars参数中。table可由str.maketrans()生成。 |
+| expandtabs(tabsize=8) | 把字符串string中的tab符号转为空格，tab符号默认的空格数是8。 |
 
 
 
