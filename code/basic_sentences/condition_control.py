@@ -29,3 +29,6 @@ b = 2570
 # 在命令行中执行下面的语句返回的是false，而在pycharm中返回的是true
 print(a is b)
 print(a == b)
+
+age = -1
+assert 0 < age < 100
