@@ -10,6 +10,9 @@ data = [
     ("vehicle", "school bus")
 ]
 
+tup1 = [('name', 'anyu'), ('age', 30)]
+dict5 = {'name': 'anyu', 'age': 30}
+
 if __name__ == '__main__':
 
     # 浅拷贝: 引用对象
@@ -35,3 +38,14 @@ if __name__ == '__main__':
         groups[key].append(value)
 
     print(groups)
+
+    print("========创建字典=========")
+    # 通过元组创建字典
+    print(dict(tup1))
+    # 通过关键字参数创建字典
+    print(dict(name='anyu', age=30))
+
+    print("========字典格式化字符串=========")
+    str1 = 'My name is %(name)s, age is %(age)d' % dict5
+    print(str1)
+    print({}.fromkeys(('name', 'age')))

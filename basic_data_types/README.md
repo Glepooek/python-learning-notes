@@ -12,6 +12,6 @@ Python3中有六个标准的数据类型
 - [字符串(String)](2_string.md)
 - [列表(List)](3_list.md)
 - [元组(Tuple)](4_tuple.md)
-- [字典(Dictionary)](5_dictionary.md)
+- [字典(Dictionary)](5_dict.md)
 - [集合(Set)](6_set.md)
 
