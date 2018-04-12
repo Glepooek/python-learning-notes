@@ -86,7 +86,32 @@ else:
     print('有continue的for循环可以执行else语句')
 ```
 
-###### 6、pass语句
+###### 6、列表推导式
+列表推导式是利用其它列表创建新列表的一种方式。
+
+```python
+list1 = [x * x for x in range(10)]
+print(list1)
+
+# output
+[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+
+# 列表推导式与if语句结合使用
+list2 = [x * x for x in range(10) if x % 3 == 0]
+print(list2)
+
+# output
+[0, 9, 36, 81]
+
+# 列表推导式中使用多个for语句
+list3 = [(x, y) for x in range(3) for y in range(3)]
+print(list3)
+
+# output
+[(0, 0), (0, 1), (0, 2), (1, 0), (1, 1), (1, 2), (2, 0), (2, 1), (2, 2)]
+```
+
+###### 7、pass语句
 pass是空语句，不做任何事情，一般用做占位语句，是为了保持程序结构的完整性。 如下实例：
 
 ```python
@@ -97,3 +122,12 @@ for letter in 'Runoob':
 else:
     print('pass语句不做任何事情')
 ```
+
+###### 8、del语句
+del语句移除一个对象的引用和名字本身，而不是值本身。当某个值不再使用时，Python解释器会负责内存的回收。
+
+###### 9、使用exec和eval执行和求值字符串
+1）exec
+exec函数用于执行字符串形式的语句。
+2）eval
+eval用于计算字符串形式的Python表达式，并且返回结果值。
