@@ -14,7 +14,7 @@
         * [循环语句](basic_sentences/loop.md)
         * [其他语句](basic_sentences/others.md)
     * [面向对象](object_oriented/README.md)
-        * [函数](object_oriented/function.md)
+        * [函数](object_oriented/0_function.md)
         * [面向对象基础](object_oriented/1_basic_object_oriented.md)
         * [面向对象进阶](object_oriented/2_advanced_object_oriented.md)
         * [@classmethod与@staticmethod的区别](object_oriented/3_difference_of_@classmethod_and_@staticmethod.md)
