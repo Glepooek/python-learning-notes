@@ -24,8 +24,8 @@ class CustomException(Exception):
 ```python
 def test_exception():
     try:
-        x = input('Enter the first number:')
-        y = input('Enter the second number:')
+        x = int(input('Enter the first number:'))
+        y = int(input('Enter the second number:'))
 
         print(x / y)
     except (ZeroDivisionError, TypeError, NameError):
@@ -38,8 +38,8 @@ def test_exception():
 ```python
 def test_exception():
     try:
-        x = input('Enter the first number:')
-        y = input('Enter the second number:')
+        x = int(input('Enter the first number:'))
+        y = int(input('Enter the second number:'))
 
         print(x / y)
     except (ZeroDivisionError, TypeError, NameError) as e:
@@ -52,8 +52,8 @@ def test_exception():
 ```python
 def test_exception():
     try:
-        x = input('Enter the first number:')
-        y = input('Enter the second number:')
+        x = int(input('Enter the first number:'))
+        y = int(input('Enter the second number:'))
 
         print(x / y)
     except Exception as e:
