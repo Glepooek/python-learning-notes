@@ -20,6 +20,7 @@
         * [魔法方法、属性、迭代器](object_oriented/2.2_object_oriented.md)
         * [@classmethod与@staticmethod的区别](object_oriented/2.3_difference_of_@classmethod_and_@staticmethod.md)
         * [异常](object_oriented/3_exception.md)
+        * [模块](object_oriented/4_module.md)
     * [日期和时间](date_and_time.md)
     * [文件](file/README.md)
         * [file](file/file.md)
