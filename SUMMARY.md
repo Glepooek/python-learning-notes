@@ -55,9 +55,9 @@
     * [链表](data_structure/1_linked_list.md)
 * [设计模式](design_pattern/README.md)
     * [单利模式](data_structure/creational/singleton.md)
-* [第三方库](python-third-party-libraries/README.md)
+* [第三方库]
     * [网络爬虫](python-third-party-libraries/crawler/crawler.md)
-    * [数据库](python-third-party-libraries/database/database.md)
+    * [数据库](python-third-party-libraries/database/README.md)
     * [Django Web框架](python-third-party-libraries/django/README.md)
         * [Django安装及配置环境变量](python-third-party-libraries/django/1_django_install_and_setup.md)
     * [OpenCV](python-third-party-libraries/opencv/README.md)
