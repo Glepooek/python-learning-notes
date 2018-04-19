@@ -1,6 +1,6 @@
 import pymysql
 
-from log.logger import Logger
+from logger import Logger
 
 
 class PyMQLHelper:
@@ -8,21 +8,19 @@ class PyMQLHelper:
     PyMySQL帮助类
     """
 
-    __logger = Logger()
-    """日志对象"""
-    __connection = None
-    """数据库连接对象"""
-
-    def __init__(self, db_address, db_username, db_password, db_name):
+    def __init__(self, db_address: str, db_username: str, db_password: str, db_name: str):
         try:
             self.__connection = pymysql.connect(db_address,
                                                 db_username,
                                                 db_password,
                                                 db_name)
+            self.__logger = Logger()
+            """日志对象"""
+
         except Exception as e:
             self.__logger.debug(e)
 
-    def create_table(self, sql):
+    def create_table(self, sql: str):
         """
         创建数据表
         关键词 with 语句可以保证诸如文件之类的对象在使用完之后一定会正确的执行其清理方法
@@ -42,7 +40,7 @@ class PyMQLHelper:
         finally:
             self.__connection.close()
 
-    def execute_operation(self, sql):
+    def execute_operation(self, sql: str):
         """
         插入、删除、更新数据
 
@@ -70,7 +68,7 @@ class PyMQLHelper:
         finally:
             self.__connection.close()
 
-    def get_all(self, sql):
+    def get_all(self, sql: str):
         """
         获取符合条件的全部数据
 
@@ -92,7 +90,7 @@ class PyMQLHelper:
         finally:
             self.__connection.close()
 
-    def get_one(self, sql):
+    def get_one(self, sql: str):
         """
         获取符合条件的一条数据
 
@@ -113,3 +111,8 @@ class PyMQLHelper:
             self.__logger.debug(e)
         finally:
             self.__connection.close()
+
+
+if __name__ == '__main__':
+    helper = PyMQLHelper('localhost', 'root', '123456', 'pythontest')
+    helper.get_all('SELECT * FROM employee')
