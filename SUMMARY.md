@@ -32,6 +32,8 @@
         * [XML数据解析](data_analysis/xml_data_analysis.md)
     * [网络编程](web_programming/README.md)
         * [socket](web_programming/socket.md)
+        * [urllib](web_programming/urllib.md)
+        * [twisted](web_programming/twisted.md)
         * [smtp](web_programming/smtp.md)
     * [异步编程](async_programming/README.md)
         * [多线程](async_programming/multithread.md)
