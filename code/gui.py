@@ -1,6 +1,5 @@
 import wx
 
-
 def open_file(event):
     with open(file_name.GetValue()) as file:
         contents.SetValue(file.read())

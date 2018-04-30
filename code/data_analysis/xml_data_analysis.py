@@ -3,10 +3,12 @@ from xml.sax.handler import ContentHandler, feature_namespaces
 from xml.dom.minidom import parse
 import xml.dom.minidom
 import xml.etree.cElementTree as cet
+from html.parser import HTMLParser
 
 
 class MovieHandler(ContentHandler):
     def __init__(self):
+        super(MovieHandler, self).__init__()
         self.CurrentTag = ""
         self.CurrentTagValue = ''
 
