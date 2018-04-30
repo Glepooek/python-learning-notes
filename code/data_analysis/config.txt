@@ -1,0 +1,5 @@
+[numbers]
+PI:3.1415926
+
+[messages]
+greeting:welcome to China
